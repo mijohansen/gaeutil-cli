@@ -32,8 +32,8 @@ The input file could have some special attributes. For instance a `@key_name` an
     "data": {
         "account_name": "This doesn not need to be secret",
         "secret_token": "**encrypted**",
-        "other_secret_data": "**encrypted**",
-    }
+        "other_secret_data": "**encrypted**"
+    },
     "created": "2018-03-26T07:59:50.882Z",
     "created_by": "michael.johansen@gmail.com",
     "ciphertext": "CiQAMmiLNixBGy/crPzbCUfCsKddFHy+3oncmhxqFOkvIwgudIASVACfhteQXjaPRrc5URl36QZIYkUa5MFVq2KPB7lNTqYcqFjLGYYAyaGXvYCyGJzy88vAJ8T3qijuCjifswKGKpLPrl+n999IhgwCIiiPUoVk+FMt1w=="
