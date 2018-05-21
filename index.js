@@ -1,13 +1,53 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-//const colors = require('colors');
-
+const colors = require('colors');
+require('pkginfo')(module)
 
 program
-    .command('gaeutil')
+    .version(module.exports.version)
+    .command('ignore')
+    .option('-r, --recursive', 'Remove recursively'.red)
+    .action(require("./commands/ignore"))
+
+program
+    .command('status')
+    .option('-r, --recursive', 'Remove recursively'.red)
+    .action(require("./commands/status"))
+
+program
+    .command('jetbrains')
+    .option('-r, --recursive', 'Remove recursively'.red)
+    .action(require("./commands/jetbrains"))
+
+program
+    .command('add-author')
+    .option('-r, --recursive', 'Remove recursively'.red)
+    .action(require("./commands/add-author"))
+
+program
+    .command('secret-init <secret-filepath> <projectId>')
+    .option('-r, --recursive', 'Remove recursively'.red)
+    .action(require("./commands/secret-init"))
+
+program
+    .command('secret-push <secret-filepath>')
+    .action(require("./commands/secret-push"))
+
+program
+    .command('secret-pull <secret-filepath>')
+    .action(require("./commands/secret-pull"))
+
+program
+    .command('init-php')
+    .option('-r, --recursive', 'Remove recursively')
+    .action(require("./commands/init-php"))
+
+program
+    .command('app-yaml')
     .option('-r, --recursive', 'Remove recursively')
     .action(require("./commands/app-yaml"))
+
 
 /*
 
@@ -28,13 +68,12 @@ program
     .option('-r, --recursive', 'Remove recursively')
     .action(require("./commands/add-package-json-commands"))
 
-program
-    .command('init-php')
-    .option('-r, --recursive', 'Remove recursively')
-    .action(require("./commands/init-php"))
+
 */
 
 program.parse(process.argv)
+
+
 
 if (program.args.length === 0) {
     program.help()

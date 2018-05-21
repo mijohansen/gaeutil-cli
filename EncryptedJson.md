@@ -18,18 +18,19 @@ The input file could have some special attributes. For instance a `@key_name` an
     "account_name": "This doesn not need to be secret",
     "secret_token": "asdfahakk fasldfk asdfk sadfk ",
     "other_secret_data": "asd asdf a svery secret",
-    "@secret_fields": ["secret_tokenc", "other_secret_data"],
+    "@secret_fields": ["secret_token", "other_secret_data"],
     "@key_name": "projects/{project}/locations/global/keyRings/{keyring}/cryptoKeys/{key}"
 }
 ```
 
 #### Output
+The partly encryted json would look like this:
 
 ```json
 {
     "key_name": "projects/{project}/locations/global/keyRings/{keyring}/cryptoKeys/{key}",
     "secret_fields": ["secret_token", "other_secret_data"],
-    "data": {
+    "attributes": {
         "account_name": "This doesn not need to be secret",
         "secret_token": "**encrypted**",
         "other_secret_data": "**encrypted**"
@@ -45,12 +46,16 @@ The input file could have some special attributes. For instance a `@key_name` an
 The implementation in this scenario would be fairly simple. 
 
 1. The decoder would fetch the file either from disk our from a service like cloud storage.
-2. Send the cipher and the key to the decryption service.
+2. Send the ciphertext and the key to the decryption service.
 3. then merge the decrypted object with the data object in the config file.
 4. then add the `@key_name` and a `@secret_fields` to the file. This part is optional. To retrieve a file for editing I would recommend keeping them. In a running operation I would strip them.
 5. Optional: the application should try to cache the config data in memory as they involve at least one http requests for every config-file that should be decoded.
 
-The great benefit of doing it this way would be that you could keep configuration data that belongs together i
+The great benefit of doing it this way would be that:
+
+* you could keep configuration data that naturally belongs together in the same file. 
+* The unencrypted data would provide you with hints to what kind of config data this actually is.
+* When developing apps, you would know what config params actually are named just by looking on the partly encrypted json.
 
 
 ## But wait, what about environment variables?
@@ -61,14 +66,24 @@ Actually I would argue that env variables might be less secure than this approac
 [the kms docs]: https://cloud.google.com/kms/docs/store-secrets
 [12 factor config]: https://12factor.net/config
 
+https://gist.github.com/telent/9742059
+
+https://www.reddit.com/r/ruby/comments/2r38xr/a_counterpoint_to_the_twelve_factor_apps/
 
 
 
+Inspirations
 
+* Json-schema
 
+```json
+{
+properties: [
+{ data}
+]
+}
 
-
-
+```
 
 
 
