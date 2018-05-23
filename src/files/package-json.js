@@ -1,8 +1,9 @@
 const jsonfile = require('jsonfile')
 const {fileExists} = require('../utils')
-const appYaml = require('./app-yaml').read()
+const appYamlRead = require('./app-yaml').read
 const filename = 'package.json'
 const {intersection} = require('lodash')
+
 const read = function () {
   let packageJson = {}
   if (exists()) {
@@ -32,8 +33,9 @@ const addAppEngineScripts = function (project) {
   if (!obj.scripts) {
     obj.scripts = {}
   }
+  let appYaml = appYamlRead()
   // @todo check app.yaml for type deveserve
-  if (['PHP55', 'Python'].includes(appYaml.runtime)) {
+  if (['PHP55', 'Python'].includes(appYaml)) {
     obj.scripts.devserve = 'dev_appserver.py --port=5000 . -A ' + project
     obj.scripts.deploy = 'gcloud app deploy app.yaml --project ' + project + ' --promote --quiet'
   }
