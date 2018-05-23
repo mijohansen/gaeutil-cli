@@ -8,45 +8,45 @@ program
     .version(module.exports.version)
     .command('ignore')
     .option('-r, --recursive', 'Remove recursively'.red)
-    .action(require("./commands/ignore"))
+    .action(require("../commands/ignore"))
 
 program
     .command('status')
     .option('-r, --recursive', 'Remove recursively'.red)
-    .action(require("./commands/status"))
+    .action(require("../commands/status"))
 
 program
     .command('jetbrains')
     .option('-r, --recursive', 'Remove recursively'.red)
-    .action(require("./commands/jetbrains"))
+    .action(require("../commands/jetbrains"))
 
 program
     .command('add-author')
     .option('-r, --recursive', 'Remove recursively'.red)
-    .action(require("./commands/add-author"))
+    .action(require("../commands/add-author"))
 
 program
     .command('secret-init <secret-filepath> <projectId>')
     .option('-r, --recursive', 'Remove recursively'.red)
-    .action(require("./commands/secret-init"))
+    .action(require("../commands/secret-init"))
 
 program
     .command('secret-push <secret-filepath>')
-    .action(require("./commands/secret-push"))
+    .action(require("../commands/secret-push"))
 
 program
     .command('secret-pull <secret-filepath>')
-    .action(require("./commands/secret-pull"))
+    .action(require("../commands/secret-pull"))
 
 program
     .command('init-php')
     .option('-r, --recursive', 'Remove recursively')
-    .action(require("./commands/init-php"))
+    .action(require("../commands/init-php"))
 
 program
     .command('app-yaml')
     .option('-r, --recursive', 'Remove recursively')
-    .action(require("./commands/app-yaml"))
+    .action(require("../commands/app-yaml"))
 
 
 /*
