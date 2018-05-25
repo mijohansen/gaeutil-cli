@@ -39,6 +39,10 @@ program
     .action(require("../commands/secret-pull"))
 
 program
+  .command('secret-view <secret-filepath>')
+  .action(require("../commands/secret-view"))
+
+program
     .command('init-php')
     .option('-r, --recursive', 'Remove recursively')
     .action(require("../commands/init-php"))

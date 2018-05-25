@@ -1,6 +1,6 @@
 
-const appYamlExists = require('../src/files/app-yaml').exists()
-const packageJsonExists = require('../src/files/package-json').exists()
+const appYamlExists = require('../src/files/app-yaml').exists
+const packageJsonExists = require('../src/files/package-json').exists
 /*
 - Check if app.yaml exists
 - add devserve command

@@ -1,10 +1,12 @@
 const DOMParser = require('xmldom').DOMParser
-const serveScripts = require('../src/files/package-json').getServeScripts()
+const getServeScripts = require('../src/files/package-json').getServeScripts
 const {intersection,difference} = require('lodash')
 const workspaceXml = require('../src/files/workspace-xml')
 const filename = '.idea/workspace.xml'
+
+
 const getCmndNames = function (cmdPrefix) {
-  return serveScripts.map(elem => cmdPrefix + elem)
+  return getServeScripts().map(elem => cmdPrefix + elem)
 }
 
 module.exports = function (project, service) {

@@ -1,6 +1,6 @@
 {
   "name": "node-gae-util",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Collection of commandline helpers for development on Google App Engine written in Node.",
   "main": "main.js",
   "scripts": {
