@@ -106,7 +106,6 @@ const decryptJson = function (authClient, keyName, ciphertext) {
         let secretsParsed = JSON.parse(decoded)
         resolveMain(secretsParsed)
       }
-
     })
   })
 }

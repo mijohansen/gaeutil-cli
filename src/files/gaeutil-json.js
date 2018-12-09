@@ -1,4 +1,4 @@
-const {fileExists} = require('../utils')
+const { fileExists } = require('../utils')
 const filename = 'config/gaeutil.json'
 const read = function () {
   return jsonfile.readFileSync(filename)

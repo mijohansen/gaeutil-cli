@@ -8,14 +8,11 @@ const packageJsonExists = require('../src/files/package-json').exists
  */
 
 module.exports = function (project, service) {
-
-    if (!appYamlExists) {
-        console.log('app.yaml doesn\'t exists no extra commands.')
-        return
-    }
-    if (!packageJsonExists) {
-        console.log('package.json doesn\'t exists no extra commands.')
-        return
-    }
-
+  if (!appYamlExists) {
+    console.log('app.yaml doesn\'t exists no extra commands.')
+    return
+  }
+  if (!packageJsonExists) {
+    console.log('package.json doesn\'t exists no extra commands.')
+  }
 }

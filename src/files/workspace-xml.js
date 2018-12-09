@@ -1,4 +1,4 @@
-const {fileExists} = require('../utils')
+const { fileExists } = require('../utils')
 const filename = '.idea/workspace.xml'
 const fs = require('fs')
 const exists = function () {

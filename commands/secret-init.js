@@ -1,5 +1,5 @@
 const inquirer = require('inquirer')
-const {parseGsUrl, ensureDir, writeJson, readJson,fileExists} = require('../src/utils')
+const { parseGsUrl, ensureDir, writeJson, readJson, fileExists } = require('../src/utils')
 const getDefaultAuthClient = require('../src/apis/googleapis').getDefaultAuthClient
 const getCryptoKeys = require('../src/apis/googleapis').getCryptoKeys
 
@@ -11,7 +11,7 @@ const getCryptoKeys = require('../src/apis/googleapis').getCryptoKeys
  * @param bucket
  * @param keyProject
  */
-module.exports = function (secretFilename,projectId) {
+module.exports = function (secretFilename, projectId) {
   let gsObj = parseGsUrl(secretFilename)
   let directory = 'secrets/' + gsObj.bucket
   let filepath = directory + '/' + gsObj.file
@@ -26,7 +26,7 @@ module.exports = function (secretFilename,projectId) {
     secretFields: [],
     attributes: {}
   }
-  if(fileExists(filepath)){
+  if (fileExists(filepath)) {
     configContent = readJson(filepath)
   }
   getCryptoKeys(authClient, projectId).then(function (cryptoKeys) {
@@ -38,7 +38,7 @@ module.exports = function (secretFilename,projectId) {
     }]).then(function (result) {
       configContent.keyName = result.keyName
       ensureDir(directory)
-      console.log("Secret file " + filepath.bold + " initiated.")
+      console.log('Secret file ' + filepath.bold + ' initiated.')
       return writeJson(filepath, configContent)
     })
   })

@@ -1,6 +1,6 @@
-const {execSync} = require('child_process')
+const { execSync } = require('child_process')
 
-const getAccessToken = function (){
+const getAccessToken = function () {
   return execSync('gcloud auth application-default print-access-token').toString().trim()
 }
 const getAccount = function () {

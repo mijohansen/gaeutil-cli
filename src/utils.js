@@ -6,21 +6,19 @@ const path = require('path')
 const fileExists = function (filePath) {
   try {
     return fs.statSync(filePath).isFile()
-  }
-  catch (err) {
+  } catch (err) {
     return false
   }
 }
 const dirExists = function (dir) {
   try {
     return fs.statSync(dir).isDirectory()
-  }
-  catch (err) {
+  } catch (err) {
     return false
   }
 }
 
-function ensureDir (targetDir, {isRelativeToScript = false} = {}) {
+function ensureDir (targetDir, { isRelativeToScript = false } = {}) {
   const sep = path.sep
   const initDir = path.isAbsolute(targetDir) ? sep : ''
   const baseDir = isRelativeToScript ? __dirname : '.'
@@ -43,7 +41,7 @@ const readJson = function (filename) {
   try {
     return jsonfile.readFileSync(filename)
   } catch (e) {
-    return
+
   }
 }
 
@@ -55,7 +53,6 @@ const writeJson = function (filename, content) {
     })
   } catch (e) {
     console.error(e.message)
-    return
   }
 }
 const parseGsUrl = function (gsUrl) {

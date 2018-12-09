@@ -5,8 +5,8 @@ const packageJsonWrite = require('../src/files/package-json').write
 const composerJsonRead = require('../src/files/composer-json').read
 const composerJsonWrite = require('../src/files/composer-json').write
 
-const {ensureDir} = require('../src/utils')
-const {addAppEngineScripts} = require('../src/files/package-json')
+const { ensureDir } = require('../src/utils')
+const { addAppEngineScripts } = require('../src/files/package-json')
 /**
  * Create and update
  * - app.yaml => add skip files, correct modules etc
@@ -35,6 +35,4 @@ module.exports = function (project, service) {
   writePackageJson(packageJsonContent)
   composerJsonWrite(composerJsonContent)
   addAppEngineScripts(packageJsonContent)
-
 }
-

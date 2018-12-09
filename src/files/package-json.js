@@ -1,8 +1,8 @@
 const jsonfile = require('jsonfile')
-const {fileExists} = require('../utils')
+const { fileExists } = require('../utils')
 const appYamlRead = require('./app-yaml').read
 const filename = 'package.json'
-const {intersection} = require('lodash')
+const { intersection } = require('lodash')
 
 const read = function () {
   let packageJson = {}

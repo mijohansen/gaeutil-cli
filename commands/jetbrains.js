@@ -1,9 +1,8 @@
 const DOMParser = require('xmldom').DOMParser
 const getServeScripts = require('../src/files/package-json').getServeScripts
-const {intersection,difference} = require('lodash')
+const { intersection, difference } = require('lodash')
 const workspaceXml = require('../src/files/workspace-xml')
 const filename = '.idea/workspace.xml'
-
 
 const getCmndNames = function (cmdPrefix) {
   return getServeScripts().map(elem => cmdPrefix + elem)
@@ -71,14 +70,13 @@ module.exports = function (project, service) {
     RunManager.appendChild(configurationTag)
     RunManager.setAttribute('selected', 'npm.' + cmndNames)
   })
-  if(cmndsToCreate.length>0){
+  if (cmndsToCreate.length > 0) {
     workspaceXml.write(doc.toString())
     console.log('New config written to ' + filename)
   } else {
     console.log('Nothing to do.')
   }
 }
-
 
 /*
 Check if package.json exists

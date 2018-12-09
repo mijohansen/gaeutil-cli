@@ -1,5 +1,5 @@
-const {fileExists} = require('../utils')
-const {execSync} = require('child_process')
+const { fileExists } = require('../utils')
+const { execSync } = require('child_process')
 const jsonfile = require('jsonfile')
 const isArray = require('lodash').isArray
 const isObject = require('lodash').isObject

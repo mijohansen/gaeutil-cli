@@ -6,11 +6,9 @@ const inquirer = require('inquirer')
 const uploadJson = require('../src/apis/cloud-storage').uploadJson
 
 module.exports = function (cmd) {
+  console.log(cmd.recursive)
 
-    console.log(cmd.recursive)
-
-
-    /*
+  /*
     console.log('gitignoreExists'.red, gitignoreExists())
     console.log('appYamlExists'.red, appYamlExists())
     console.log('packageJsonExists'.red, packageJsonExists())

@@ -1,5 +1,5 @@
-const {parseGsUrl, ensureDir, writeJson} = require('../src/utils')
-const {pullSecret} = require('../src/apis/secrets')
+const { parseGsUrl, ensureDir, writeJson } = require('../src/utils')
+const { pullSecret } = require('../src/apis/secrets')
 const ignoredPrefixes = ['.', '@', '_']
 /**
  * An app need to have access to both the place the

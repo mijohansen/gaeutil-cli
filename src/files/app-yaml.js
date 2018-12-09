@@ -2,7 +2,7 @@ const jsyaml = require('js-yaml')
 const fs = require('fs')
 const fileExists = require('../utils').fileExists
 const dirExists = require('../utils').dirExists
-const {uniq, forEach} = require('lodash')
+const { uniq, forEach } = require('lodash')
 const filename = 'app.yaml'
 const exists = function () {
   return fileExists(filename)

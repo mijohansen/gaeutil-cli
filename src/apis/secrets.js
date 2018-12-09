@@ -2,8 +2,8 @@ const encrypt = require('./googleapis').encryptJson
 const decryptJson = require('./googleapis').decryptJson
 const getDefaultAuthClient = require('./googleapis').getDefaultAuthClient
 const getGcloudAccount = require('./gcloud').getAccount
-const {uploadJson,downloadJson} = require('./cloud-storage')
-const {forEach, uniq, merge} = require('lodash')
+const { uploadJson, downloadJson } = require('./cloud-storage')
+const { forEach, uniq, merge } = require('lodash')
 
 const possibleKeyNameFields = ['@key_name', '_key_name', 'key_name', 'keyName']
 const possibleCipherFields = ['_cipher', 'ciphertext']
